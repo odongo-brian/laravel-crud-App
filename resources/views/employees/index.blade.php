@@ -27,7 +27,7 @@
 </head>
 <body class="container">
     <h1 class="text-center">Employees List</h1>
-    <a href="{{ route('employee.create') }}"><button class="btn btn-primary">Add Employee</button></a>
+    <a href="{{ route('employee.create') }}"><button class="btn btn-primary mb-4">Add Employee</button></a>
     <div>
         @if(session()->has('success'))
             <div>
