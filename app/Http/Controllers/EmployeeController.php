@@ -13,7 +13,8 @@ class EmployeeController extends Controller
     {
 
 
-        $employees = Employee::all(); // fetches all the employees records
+       // $employees = Employee::all(); // fetches all the employees records
+        $employees = Employee::paginate(10); //Fetches 10 Employees per page
         return view('employees.index', ['employees' => $employees]);
 
     }
@@ -24,6 +25,7 @@ class EmployeeController extends Controller
     public function create()
     {
         return view('employees.create');
+        // return redirect(route('employee.create'))->with('success', 'employee created successfully');
     }
 
     /**
@@ -42,7 +44,7 @@ class EmployeeController extends Controller
 
             $newEmployee  = Employee::create($data); // saving data to db via model
 
-            // return redirect(route('employees.index')); //redirect to index pg after saving data to db
+             return redirect(route('employee.index')) ->with('sucess', 'Employee Created Successfully'); //redirect to index pg after saving data to db
 
 
     }
